@@ -9,38 +9,31 @@
 [![VirtualBox](https://img.shields.io/badge/VirtualBox-183A61?style=for-the-badge&logo=virtualbox&logoColor=white)](https://virtualbox.org)
 [![DevStack](https://img.shields.io/badge/DevStack-FF6600?style=for-the-badge&logo=openstack&logoColor=white)](https://docs.openstack.org/devstack)
 
----
-
-**Module :** Administration Systèmes & Réseaux · **Semestre :** S8  
-**Filière :** Génie Informatique · **Année Universitaire :** 2025/2026  
-**Réalisé par :** EL OUAFIR Mohamed & ENNAQUI Zakaria  
-**Encadré par :** Pr. SAHMI Imane — ENSA Berrechid
-
 </div>
 
 ---
 
-## 📋 Table des Matières
+## Table des Matières
 
-- [📖 Introduction](#-introduction)
-- [🎯 Objectifs du Projet](#-objectifs-du-projet)
-- [🏗️ Architecture Générale](#️-architecture-générale)
-- [🧩 Composants OpenStack](#-composants-openstack-déployés)
-- [⚙️ Installation avec DevStack](#️-installation-avec-devstack)
-- [🖥️ Interface Horizon — Dashboard](#️-interface-horizon--dashboard)
-- [🌐 Configuration du Réseau Virtuel](#-configuration-du-réseau-virtuel)
-- [💻 Gestion des VMs](#-gestion-des-images-et-création-des-machines-virtuelles)
-- [✅ Tests et Validation](#-tests-et-validation)
-- [📊 Gestion des Ressources](#-gestion-des-ressources)
-- [📸 Captures d'Installation](#-captures-décran--installation)
-- [📸 Captures OpenStack](#-captures-décran--openstack-horizon)
-- [🔚 Conclusion](#-conclusion-et-perspectives)
+- [Introduction](#-introduction)
+- [Objectifs du Projet](#-objectifs-du-projet)
+- [Architecture Générale](#️-architecture-générale)
+- [Composants OpenStack](#-composants-openstack-déployés)
+- [Installation avec DevStack](#️-installation-avec-devstack)
+- [Interface Horizon — Dashboard](#️-interface-horizon--dashboard)
+- [Configuration du Réseau Virtuel](#-configuration-du-réseau-virtuel)
+- [Gestion des VMs](#-gestion-des-images-et-création-des-machines-virtuelles)
+- [Tests et Validation](#-tests-et-validation)
+- [Gestion des Ressources](#-gestion-des-ressources)
+- [Captures d'Installation](#-captures-décran--installation)
+- [Captures OpenStack](#-captures-décran--openstack-horizon)
+- [Conclusion](#-conclusion-et-perspectives)
 
 ---
 
-## 📖 Introduction
+## Introduction
 
-Ce projet, réalisé dans le cadre du module **Administration Systèmes & Réseaux (S8)**, porte sur la mise en place d'un **cloud privé complet** à l'aide d'**OpenStack** déployé via **DevStack** sur Ubuntu 24.04 LTS.
+Ce projet, réalisé dans le cadre **Administration Systèmes & Réseaux **, porte sur la mise en place d'un **cloud privé complet** à l'aide d'**OpenStack** déployé via **DevStack** sur Ubuntu 24.04 LTS.
 
 **OpenStack** est une plateforme cloud open-source de référence dans l'industrie, offrant une suite complète de services **IaaS (Infrastructure as a Service)**. Elle est utilisée par de grandes organisations pour gérer des infrastructures cloud privées et publiques à grande échelle.
 
@@ -48,7 +41,7 @@ L'objectif principal est de comprendre et de déployer une infrastructure cloud 
 
 ---
 
-## 🎯 Objectifs du Projet
+## Objectifs du Projet
 
 | # | Objectif |
 |---|----------|
@@ -61,28 +54,28 @@ L'objectif principal est de comprendre et de déployer une infrastructure cloud 
 
 ---
 
-## 🏗️ Architecture Générale
+## Architecture Générale
 
 L'architecture retenue est une installation **All-in-One (AIO)**, où tous les services OpenStack sont déployés sur un seul nœud. Cette approche est idéale pour un environnement de développement et d'apprentissage.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                   Windows 10/11 (Hôte)                  │
-│                   Oracle VirtualBox                      │
+│                   Oracle VirtualBox                     │
 │                                                         │
 │  ┌───────────────────────────────────────────────────┐  │
 │  │           Ubuntu 24.04 LTS — Machine Virtuelle    │  │
 │  │         4 vCPUs · 8+ Go RAM · 80+ Go Disque       │  │
 │  │                                                   │  │
-│  │   ┌─────────────────────────────────────────┐    │  │
-│  │   │        DevStack — OpenStack AIO          │    │  │
-│  │   │  Keystone · Nova · Neutron · Glance      │    │  │
-│  │   │       Cinder · Horizon                   │    │  │
-│  │   │                                         │    │  │
-│  │   │  [VM1] 10.0.0.138 ←→ [VM2] 10.0.0.x   │    │  │
-│  │   │         ↕ Réseau privé 10.0.0.0/24      │    │  │
-│  │   │     [Routeur R1] ←→ public-network       │    │  │
-│  │   └─────────────────────────────────────────┘    │  │
+│  │   ┌─────────────────────────────────────────┐     │  │
+│  │   │        DevStack — OpenStack AIO         │     │  │
+│  │   │  Keystone · Nova · Neutron · Glance     │     │  │
+│  │   │       Cinder · Horizon                  │     │  │
+│  │   │                                         │     │  │
+│  │   │  [VM1] 10.0.0.138 ←→ [VM2] 10.0.0.x     │     │  │
+│  │   │         ↕ Réseau privé 10.0.0.0/24      │     │  │
+│  │   │     [Routeur R1] ←→ public-network      │     │  │
+│  │   └─────────────────────────────────────────┘     │  │
 │  │                                                   │  │
 │  │   Accès : http://<IP>/dashboard (Horizon)         │  │
 │  └───────────────────────────────────────────────────┘  │
@@ -99,7 +92,7 @@ L'architecture retenue est une installation **All-in-One (AIO)**, où tous les s
 
 ---
 
-## 🧩 Composants OpenStack Déployés
+## Composants OpenStack Déployés
 
 | Composant | Nom du Service | Rôle |
 |-----------|---------------|------|
@@ -112,11 +105,11 @@ L'architecture retenue est une installation **All-in-One (AIO)**, où tous les s
 
 ---
 
-## ⚙️ Installation avec DevStack
+## Installation avec DevStack
 
 DevStack est un outil de déploiement rapide d'OpenStack destiné aux environnements de développement et de test. Il automatise l'installation de tous les composants OpenStack à partir des sources.
 
-### 📋 Prérequis Système
+### Prérequis Système
 
 | Ressource | Minimum | Recommandé |
 |-----------|---------|------------|
@@ -128,7 +121,7 @@ DevStack est un outil de déploiement rapide d'OpenStack destiné aux environnem
 
 ---
 
-### 🔧 Étapes d'Installation
+### Étapes d'Installation
 
 #### Étape 1 — Mise à jour du système et création de l'utilisateur `stack`
 
@@ -170,22 +163,22 @@ LOGDAYS=2
 ./stack.sh
 ```
 
-> ⏱️ La durée d'installation est de **15 à 30 minutes**. Une fois terminé, OpenStack est accessible via `http://<IP>/dashboard` avec les identifiants `admin / ENSAb2024`.
+> ⏱ La durée d'installation est de **15 à 30 minutes**. Une fois terminé, OpenStack est accessible via `http://<IP>/dashboard` avec les identifiants `admin / ENSAb2024`.
 
 ---
 
-## 🖥️ Interface Horizon — Dashboard
+## Interface Horizon — Dashboard
 
 **Horizon** est l'interface graphique web d'OpenStack. Elle permet aux administrateurs et utilisateurs de gérer l'ensemble des ressources cloud sans recourir à la ligne de commande.
 
 Après connexion en tant qu'administrateur, le tableau de bord affiche la **synthèse des quotas** :
-- 🖥️ **Compute** : instances, vCPUs, RAM
-- 💾 **Volume** : volumes, instantanés
-- 🌐 **Réseau** : IPs flottantes, groupes de sécurité, réseaux, routeurs
+- **Compute** : instances, vCPUs, RAM
+- **Volume** : volumes, instantanés
+- **Réseau** : IPs flottantes, groupes de sécurité, réseaux, routeurs
 
 ---
 
-## 🌐 Configuration du Réseau Virtuel
+## Configuration du Réseau Virtuel
 
 **Neutron** est le service réseau d'OpenStack. Il implémente le **Software Defined Networking (SDN)** pour créer et gérer des réseaux virtuels isolés, des sous-réseaux, des routeurs et des IPs flottantes.
 
@@ -208,12 +201,12 @@ Le routeur Neutron (**R1**) assure la connexion entre le réseau privé des VMs 
 ### 4.4 Groupe de Sécurité
 
 Le groupe **`ssh-ping-security-group`** autorise :
-- 🔑 Connexions **SSH** (port 22/TCP)
-- 📡 Requêtes **ICMP** (ping)
+- Connexions **SSH** (port 22/TCP)
+- Requêtes **ICMP** (ping)
 
 ---
 
-## 💻 Gestion des Images et Création des Machines Virtuelles
+## Gestion des Images et Création des Machines Virtuelles
 
 ### 5.1 Image Glance (cirros)
 
@@ -244,7 +237,7 @@ Les IPs flottantes permettent d'accéder aux VMs depuis l'extérieur :
 
 ---
 
-## ✅ Tests et Validation
+## ✓ Tests et Validation
 
 ### Connexion SSH depuis Windows
 
@@ -262,20 +255,20 @@ ping 8.8.8.8    # 3 paquets — 0% perte ✔
 ping 10.0.0.138 # 4 paquets — 0% perte ✔
 ```
 
-### 📊 Récapitulatif des Tests
+### Récapitulatif des Tests
 
 | Test | Résultat |
 |------|---------|
-| ✅ Connexion au Dashboard Horizon | `admin` authentifié avec succès |
-| ✅ Création de VM1 et VM2 | Status : **Active**, Running |
-| ✅ Assignation d'IPs flottantes | `172.24.4.168` (VM1) · `172.24.4.122` (VM2) |
-| ✅ Connexion SSH depuis Windows | Authentification par clé RSA réussie |
-| ✅ Ping Internet (8.8.8.8) | 0% perte — routage externe fonctionnel |
-| ✅ Ping inter-VMs (10.0.0.0/24) | Communication interne OK |
+| ✓ Connexion au Dashboard Horizon | `admin` authentifié avec succès |
+| ✓ Création de VM1 et VM2 | Status : **Active**, Running |
+| ✓ Assignation d'IPs flottantes | `172.24.4.168` (VM1) · `172.24.4.122` (VM2) |
+| ✓ Connexion SSH depuis Windows | Authentification par clé RSA réussie |
+| ✓ Ping Internet (8.8.8.8) | 0% perte — routage externe fonctionnel |
+| ✓ Ping inter-VMs (10.0.0.0/24) | Communication interne OK |
 
 ---
 
-## 📊 Gestion des Ressources
+## Gestion des Ressources
 
 ### Flavors (Gabarits CPU/RAM/Disque)
 
@@ -298,9 +291,9 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 
 ---
 
-## 📸 Captures d'écran — Installation
+## Captures d'écran — Installation
 
-> Captures réalisées lors de l'installation de DevStack sur Ubuntu 24.04 (18 février 2026)
+> Captures réalisées lors de l'installation de DevStack sur Ubuntu 24.04
 
 <table>
 <tr>
@@ -349,11 +342,11 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 
 ---
 
-## 📸 Captures d'écran — OpenStack Horizon
+## Captures d'écran — OpenStack Horizon
 
-> Captures réalisées lors de la configuration et utilisation de l'infrastructure cloud (18 mai 2026)
+> Captures réalisées lors de la configuration et utilisation de l'infrastructure cloud
 
-### 🖥️ Dashboard & Vue d'ensemble
+### Dashboard & Vue d'ensemble
 
 <table>
 <tr>
@@ -372,7 +365,7 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 </tr>
 </table>
 
-### 🌐 Configuration Réseau
+### Configuration Réseau
 
 <table>
 <tr>
@@ -457,7 +450,7 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 </tr>
 </table>
 
-### 💻 Gestion des Instances (VMs)
+### Gestion des Instances (VMs)
 
 <table>
 <tr>
@@ -522,7 +515,7 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 </tr>
 </table>
 
-### ✅ Tests et Topologie
+### ✓ Tests et Topologie
 
 <table>
 <tr>
@@ -584,18 +577,18 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 
 ---
 
-## 🔚 Conclusion et Perspectives
+## Conclusion et Perspectives
 
 ### Bilan du Projet
 
 Ce projet a permis de déployer avec succès une infrastructure cloud privée complète basée sur OpenStack et DevStack. L'ensemble des objectifs fixés ont été atteints :
 
-- ✅ Installation d'OpenStack (DevStack) sur **Ubuntu 24.04** dans une VM VirtualBox
-- ✅ Déploiement des **6 services** : Keystone, Nova, Neutron, Glance, Cinder, Horizon
-- ✅ Création et gestion de machines virtuelles (**VM1, VM2**) via Horizon et CLI
-- ✅ Configuration du **réseau virtuel** : réseau public, réseau privé (10.0.0.0/24), routeur R1
-- ✅ Attribution d'**IPs flottantes** et tests de connectivité SSH et ping validés
-- ✅ Gestion des ressources : **quotas, flavors, groupes de sécurité**
+- ✓ Installation d'OpenStack (DevStack) sur **Ubuntu 24.04** dans une VM VirtualBox
+- ✓ Déploiement des **6 services** : Keystone, Nova, Neutron, Glance, Cinder, Horizon
+- ✓ Création et gestion de machines virtuelles (**VM1, VM2**) via Horizon et CLI
+- ✓ Configuration du **réseau virtuel** : réseau public, réseau privé (10.0.0.0/24), routeur R1
+- ✓ Attribution d'**IPs flottantes** et tests de connectivité SSH et ping validés
+- ✓ Gestion des ressources : **quotas, flavors, groupes de sécurité**
 
 ### Conclusion
 
@@ -607,7 +600,7 @@ OpenStack est une solution cloud privée **robuste et flexible**, largement adop
 
 **ENSA Berrechid — Génie Informatique S8 — 2025/2026**
 
-Made with ❤️ by [EL OUAFIR Mohamed](https://github.com) & [ENNAQUI Zakaria](https://github.com/zakariaennaqui)
+Made by [EL OUAFIR Mohamed](https://github.com) & [ENNAQUI Zakaria](https://github.com/zakariaennaqui)
 
 [![GitHub](https://img.shields.io/badge/GitHub-OpenStack--CloudPrive-181717?style=flat-square&logo=github)](https://github.com/zakariaennaqui/OpenStack-CloudPrive)
 
