@@ -33,7 +33,7 @@
 
 ## Introduction
 
-Ce projet, réalisé dans le cadre **Administration Systèmes & Réseaux **, porte sur la mise en place d'un **cloud privé complet** à l'aide d'**OpenStack** déployé via **DevStack** sur Ubuntu 24.04 LTS.
+Ce projet, réalisé dans le cadre **Administration Systèmes & Réseaux**, porte sur la mise en place d'un **cloud privé complet** à l'aide d'**OpenStack** déployé via **DevStack** sur Ubuntu 24.04 LTS.
 
 **OpenStack** est une plateforme cloud open-source de référence dans l'industrie, offrant une suite complète de services **IaaS (Infrastructure as a Service)**. Elle est utilisée par de grandes organisations pour gérer des infrastructures cloud privées et publiques à grande échelle.
 
@@ -163,7 +163,7 @@ LOGDAYS=2
 ./stack.sh
 ```
 
-> ⏱ La durée d'installation est de **15 à 30 minutes**. Une fois terminé, OpenStack est accessible via `http://<IP>/dashboard` avec les identifiants `admin / ENSAb2024`.
+> La durée d'installation est de **15 à 30 minutes**. Une fois terminé, OpenStack est accessible via `http://<IP>/dashboard` avec les identifiants `admin / ENSAb2024`.
 
 ---
 
@@ -300,13 +300,11 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="50%">
 
 ![Mise à jour système](Installation%20Screenshot's/Screenshot%202026-02-18%20164400.png)
-**Fig. 1** — Mise à jour du système Ubuntu et configuration de l'utilisateur `stack`
 
 </td>
 <td align="center" width="50%">
 
 ![Installation dépendances](Installation%20Screenshot's/Screenshot%202026-02-18%20164401.png)
-**Fig. 2** — Installation des dépendances : git, curl, net-tools
 
 </td>
 </tr>
@@ -314,13 +312,11 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="50%">
 
 ![Clonage DevStack 20%](Installation%20Screenshot's/Screenshot%202026-02-18%20164402.png)
-**Fig. 3** — Clonage du dépôt DevStack en cours (20%)
 
 </td>
 <td align="center" width="50%">
 
 ![Clonage DevStack terminé](Installation%20Screenshot's/Screenshot%202026-02-18%20164403.png)
-**Fig. 4** — Clonage DevStack terminé (52 624 objets téléchargés)
 
 </td>
 </tr>
@@ -328,13 +324,11 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="50%">
 
 ![local.conf](Installation%20Screenshot's/Screenshot%202026-02-18%20164404.png)
-**Fig. 5** — Contenu du fichier `local.conf`
 
 </td>
 <td align="center" width="50%">
 
 ![Lancement stack.sh](Installation%20Screenshot's/Screenshot%202026-02-18%20164405.png)
-**Fig. 6** — Lancement de `./stack.sh` après configuration du `local.conf`
 
 </td>
 </tr>
@@ -353,13 +347,11 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="50%">
 
 ![Dashboard Horizon](OpenStack%20Screenshot's/Screenshot%202026-05-18%20154853.png)
-**Fig. 7** — Vue d'ensemble Horizon : Synthèse des Quotas (Compute, Volume, Réseau)
 
 </td>
 <td align="center" width="50%">
 
 ![Réseau public](OpenStack%20Screenshot's/Screenshot%202026-05-18%20155239.png)
-**Fig. 8** — Création du réseau public (`public-network`) avec type Local et External Network
 
 </td>
 </tr>
@@ -372,19 +364,16 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="33%">
 
 ![Sous-réseau public](OpenStack%20Screenshot's/Screenshot%202026-05-18%20155741.png)
-**Fig. 9** — Configuration du sous-réseau public (Subnet tab)
 
 </td>
 <td align="center" width="33%">
 
 ![Détails sous-réseau public](OpenStack%20Screenshot's/Screenshot%202026-05-18%20155822.png)
-**Fig. 10** — Détails du sous-réseau public
 
 </td>
 <td align="center" width="33%">
 
 ![Réseau privé](OpenStack%20Screenshot's/Screenshot%202026-05-18%20155923.png)
-**Fig. 11** — Création du réseau privé (`private-network`)
 
 </td>
 </tr>
@@ -392,19 +381,16 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="33%">
 
 ![Config sous-réseau privé](OpenStack%20Screenshot's/Screenshot%202026-05-18%20160335.png)
-**Fig. 12** — Configuration du sous-réseau privé
 
 </td>
 <td align="center" width="33%">
 
 ![Détails sous-réseau privé](OpenStack%20Screenshot's/Screenshot%202026-05-18%20160542.png)
-**Fig. 13** — Détails du sous-réseau privé
 
 </td>
 <td align="center" width="33%">
 
 ![Routeur R1](OpenStack%20Screenshot's/Screenshot%202026-05-18%20161005.png)
-**Fig. 14** — Création du routeur R1 avec gateway sur `public-network` et SNAT activé
 
 </td>
 </tr>
@@ -412,19 +398,16 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="33%">
 
 ![Interface routeur](OpenStack%20Screenshot's/Screenshot%202026-05-18%20161042.png)
-**Fig. 15** — Interfaces du routeur R1
 
 </td>
 <td align="center" width="33%">
 
 ![Groupe de sécurité](OpenStack%20Screenshot's/Screenshot%202026-05-18%20161115.png)
-**Fig. 16** — Création du groupe de sécurité `ssh-ping-security-group`
 
 </td>
 <td align="center" width="33%">
 
 ![Règles SSH](OpenStack%20Screenshot's/Screenshot%202026-05-18%20161425.png)
-**Fig. 17** — Règles du groupe de sécurité : SSH (port 22)
 
 </td>
 </tr>
@@ -432,19 +415,16 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="33%">
 
 ![Règles ICMP](OpenStack%20Screenshot's/Screenshot%202026-05-18%20161729.png)
-**Fig. 18** — Règles du groupe de sécurité : ICMP
 
 </td>
 <td align="center" width="33%">
 
 ![Règles configurées](OpenStack%20Screenshot's/Screenshot%202026-05-18%20161823.png)
-**Fig. 19** — Règles configurées
 
 </td>
 <td align="center" width="33%">
 
 ![Image Glance](OpenStack%20Screenshot's/Screenshot%202026-05-18%20161919.png)
-**Fig. 20** — Création d'une image Glance : cirros en format QCOW2
 
 </td>
 </tr>
@@ -457,19 +437,16 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="33%">
 
 ![Paires de clés SSH](OpenStack%20Screenshot's/Screenshot%202026-05-18%20162047.png)
-**Fig. 21** — Gestion des paires de clés SSH
 
 </td>
 <td align="center" width="33%">
 
 ![Lancement VM1](OpenStack%20Screenshot's/Screenshot%202026-05-18%20162154.png)
-**Fig. 22** — Lancement de l'instance VM1
 
 </td>
 <td align="center" width="33%">
 
 ![Source image cirros](OpenStack%20Screenshot's/Screenshot%202026-05-18%20162213.png)
-**Fig. 23** — Sélection de la source : image cirros (QCOW2, 20.44 Mo)
 
 </td>
 </tr>
@@ -477,19 +454,16 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="33%">
 
 ![Sélection flavor](OpenStack%20Screenshot's/Screenshot%202026-05-18%20162253.png)
-**Fig. 24** — Sélection du gabarit (flavor) pour la VM
 
 </td>
 <td align="center" width="33%">
 
 ![Configuration réseau VM](OpenStack%20Screenshot's/Screenshot%202026-05-18%20162313.png)
-**Fig. 25** — Configuration du réseau pour l'instance
 
 </td>
 <td align="center" width="33%">
 
 ![Groupe sécurité VM](OpenStack%20Screenshot's/Screenshot%202026-05-18%20162502.png)
-**Fig. 26** — Association du groupe de sécurité à l'instance
 
 </td>
 </tr>
@@ -497,19 +471,16 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="33%">
 
 ![VM1 active](OpenStack%20Screenshot's/Screenshot%202026-05-18%20164219.png)
-**Fig. 27** — Instance VM1 active (Status : Active, IP : 10.0.0.138)
 
 </td>
 <td align="center" width="33%">
 
 ![Interfaces routeur R1](OpenStack%20Screenshot's/Screenshot%202026-05-18%20164256.png)
-**Fig. 28** — Interfaces du routeur R1 : External Gateway (172.24.4.25) et Internal Interface (10.0.0.1)
 
 </td>
 <td align="center" width="33%">
 
 ![IPs flottantes](OpenStack%20Screenshot's/Screenshot%202026-05-18%20164433.png)
-**Fig. 29** — Association d'une IP flottante à une instance
 
 </td>
 </tr>
@@ -522,19 +493,16 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="33%">
 
 ![IP flottante associée](OpenStack%20Screenshot's/Screenshot%202026-05-18%20165826.png)
-**Fig. 30** — IP flottante associée : 172.24.4.168 → VM1
 
 </td>
 <td align="center" width="33%">
 
 ![Gestion IPs flottantes](OpenStack%20Screenshot's/Screenshot%202026-05-18%20165937.png)
-**Fig. 31** — Gestion des IPs flottantes dans Horizon
 
 </td>
 <td align="center" width="33%">
 
 ![Connexion SSH](OpenStack%20Screenshot's/Screenshot%202026-05-18%20170039.png)
-**Fig. 32** — Connexion SSH réussie vers VM1 (172.24.4.168) depuis Windows PowerShell
 
 </td>
 </tr>
@@ -542,19 +510,16 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="33%">
 
 ![Test ping](OpenStack%20Screenshot's/Screenshot%202026-05-18%20170117.png)
-**Fig. 33** — Test Ping
 
 </td>
 <td align="center" width="33%">
 
 ![Deux instances actives](OpenStack%20Screenshot's/Screenshot%202026-05-18%20171446.png)
-**Fig. 34** — Deux instances actives : VM1 (172.24.4.168) et VM2 (172.24.4.122)
 
 </td>
 <td align="center" width="33%">
 
 ![Tests ping inter-VM](OpenStack%20Screenshot's/Screenshot%202026-05-18%20171903.png)
-**Fig. 35** — Tests ping depuis VM2 : Internet (8.8.8.8) et inter-VM (10.0.0.138), 0% de perte
 
 </td>
 </tr>
@@ -562,13 +527,11 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 <td align="center" width="33%">
 
 ![Topologie réseau](OpenStack%20Screenshot's/Screenshot%202026-05-18%20172321.png)
-**Fig. 36** — Topologie réseau
 
 </td>
 <td align="center" width="33%">
 
 ![Flavors](OpenStack%20Screenshot's/Screenshot%202026-05-18%20172450.png)
-**Fig. 37** — Flavors disponibles (m1.tiny, m1.small, m1.medium…)
 
 </td>
 <td></td>
