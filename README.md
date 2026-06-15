@@ -13,7 +13,7 @@
 
 ---
 
-## Table des Matières
+## 
 
 - [Introduction](#-introduction)
 - [Objectifs du Projet](#-objectifs-du-projet)
@@ -340,8 +340,6 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 
 > Captures réalisées lors de la configuration et utilisation de l'infrastructure cloud
 
-### Dashboard & Vue d'ensemble
-
 <table>
 <tr>
 <td align="center" width="50%">
@@ -356,8 +354,6 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 </td>
 </tr>
 </table>
-
-### Configuration Réseau
 
 <table>
 <tr>
@@ -430,8 +426,6 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 </tr>
 </table>
 
-### Gestion des Instances (VMs)
-
 <table>
 <tr>
 <td align="center" width="33%">
@@ -485,8 +479,6 @@ ping 10.0.0.138 # 4 paquets — 0% perte ✔
 </td>
 </tr>
 </table>
-
-### ✓ Tests et Topologie
 
 <table>
 <tr>
