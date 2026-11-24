@@ -61,27 +61,27 @@ L'objectif principal est de comprendre et de déployer une infrastructure cloud 
 L'architecture retenue est une installation **All-in-One (AIO)**, où tous les services OpenStack sont déployés sur un seul nœud. Cette approche est idéale pour un environnement de développement et d'apprentissage.
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                   Windows 10/11 (Hôte)                  │
-│                   Oracle VirtualBox                     │
-│                                                         │
-│  ┌───────────────────────────────────────────────────┐  │
-│  │           Ubuntu 24.04 LTS — Machine Virtuelle    │  │
-│  │         4 vCPUs · 8+ Go RAM · 80+ Go Disque       │  │
-│  │                                                   │  │
-│  │   ┌─────────────────────────────────────────┐     │  │
-│  │   │        DevStack — OpenStack AIO         │     │  │
-│  │   │  Keystone · Nova · Neutron · Glance     │     │  │
-│  │   │       Cinder · Horizon                  │     │  │
-│  │   │                                         │     │  │
-│  │   │  [VM1] 10.0.0.138 ←→ [VM2] 10.0.0.x     │     │  │
-│  │   │         ↕ Réseau privé 10.0.0.0/24      │     │  │
-│  │   │     [Routeur R1] ←→ public-network      │     │  │
-│  │   └─────────────────────────────────────────┘     │  │
-│  │                                                   │  │
-│  │   Accès : http://<IP>/dashboard (Horizon)         │  │
-│  └───────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────
+│                   Windows 10/11 (Hôte)               
+│                   Oracle VirtualBox                   
+│                                                      
+│  ┌──────────────────────────────────────────
+│  │           Ubuntu 24.04 LTS — Machine Virtuelle    
+│  │         4 vCPUs · 8+ Go RAM · 80+ Go Disque       
+│  │                                                   
+│  │   ┌────────────────────────────────────────
+│  │   │        DevStack — OpenStack AIO         
+│  │   │  Keystone · Nova · Neutron · Glance     
+│  │   │       Cinder · Horizon                  
+│  │   │                                         
+│  │   │  [VM1] 10.0.0.138 ←→ [VM2] 10.0.0.x    
+│  │   │         ↕ Réseau privé 10.0.0.0/24      
+│  │   │     [Routeur R1] ←→ public-network      
+│  │   └────────────────────────────────────────
+│  │                                                  
+│  │   Accès : http://<IP>/dashboard (Horizon)         
+│  └────────────────────────────────────────────
+└───────────────────────────────────────────────
 ```
 
 | Élément | Détail |
